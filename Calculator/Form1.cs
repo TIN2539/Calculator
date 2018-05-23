@@ -14,7 +14,7 @@ namespace Calculator
 	{
 		private int firstOperand;
 		private string operation;
-		int result;
+		private int result;
 		private int secondOperand;
 
 		public Form1()
