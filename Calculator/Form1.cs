@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Calculator
 {
-	public partial class Form1 : Form
+	public partial class MainWindow : Form
 	{
 		private int firstOperand;
 		private string operation;
 		private int result;
 		private int secondOperand;
 
-		public Form1()
+		public MainWindow()
 		{
 			InitializeComponent();
 		}

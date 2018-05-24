@@ -1,6 +1,6 @@
 ﻿namespace Calculator
 {
-	partial class Form1
+	partial class MainWindow
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -253,7 +253,7 @@
 			this.ceButton.UseVisualStyleBackColor = true;
 			this.ceButton.Click += new System.EventHandler(this.CEButton_Click);
 			// 
-			// Form1
+			// MainWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -278,7 +278,7 @@
 			this.Controls.Add(this.button1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
-			this.Name = "Form1";
+			this.Name = "MainWindow";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Calculator";
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
