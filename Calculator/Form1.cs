@@ -158,6 +158,30 @@ namespace Calculator
 			SetOperation(divideButton.Text);
 		}
 
+		private void MainWindow_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (e.KeyChar >= '0' && e.KeyChar <= '9')
+			{
+				SetTextToTextBox(e.KeyChar.ToString());
+			}
+			else if (e.KeyChar == '/' || e.KeyChar == '*' || e.KeyChar == '-' || e.KeyChar == '+')
+			{
+				SetOperation(e.KeyChar.ToString());
+			}
+			else if (e.KeyChar =='\r')
+			{
+				ResultButton_Click(this, new EventArgs());
+			}
+			else if (e.KeyChar == '\b')
+			{
+				CEButton_Click(this, new EventArgs());
+			}
+			else
+			{
+				e.Handled = false;
+			}
+		}
+
 		private void MinusButton_Click(object sender, EventArgs e)
 		{
 			SetOperation(minusButton.Text);
@@ -211,30 +235,6 @@ namespace Calculator
 		private void TextBox_TextChanged(object sender, EventArgs e)
 		{
 			CheckCEButtonEnable();
-		}
-
-		private void MainWindow_KeyPress(object sender, KeyPressEventArgs e)
-		{
-			if (e.KeyChar >= '0' && e.KeyChar <= '9')
-			{
-				SetTextToTextBox(e.KeyChar.ToString());
-			}
-			else if (e.KeyChar == '/' || e.KeyChar == '*' || e.KeyChar == '-' || e.KeyChar == '+')
-			{
-				SetOperation(e.KeyChar.ToString());
-			}
-			else if (e.KeyChar =='\r')
-			{
-				ResultButton_Click(this, new EventArgs());
-			}
-			else if (e.KeyChar == '\b')
-			{
-				CEButton_Click(this, new EventArgs());
-			}
-			else
-			{
-				e.Handled = false;
-			}
 		}
 	}
 }
