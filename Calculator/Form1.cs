@@ -165,95 +165,6 @@ namespace Calculator
 			SetOperation(divideButton.Text);
 		}
 
-		private void MainWindow_KeyDown(object sender, KeyEventArgs e)
-		{
-			switch (e.KeyCode)
-			{
-				case Keys.NumPad0:
-				case Keys.D0:
-					if (button0.Enabled)
-					{
-						Button0_Click(this, new EventArgs());
-					}
-					break;
-				case Keys.NumPad1:
-				case Keys.D1:
-					Button1_Click(this, new EventArgs());
-					break;
-				case Keys.NumPad2:
-				case Keys.D2:
-					Button2_Click(this, new EventArgs());
-					break;
-				case Keys.NumPad3:
-				case Keys.D3:
-					Button3_Click(this, new EventArgs());
-					break;
-				case Keys.NumPad4:
-				case Keys.D4:
-					Button4_Click(this, new EventArgs());
-					break;
-				case Keys.NumPad5:
-				case Keys.D5:
-					Button5_Click(this, new EventArgs());
-					break;
-				case Keys.NumPad6:
-				case Keys.D6:
-					Button6_Click(this, new EventArgs());
-					break;
-				case Keys.NumPad7:
-				case Keys.D7:
-					Button7_Click(this, new EventArgs());
-					break;
-				case Keys.NumPad8:
-				case Keys.D8:
-					Button8_Click(this, new EventArgs());
-					break;
-				case Keys.NumPad9:
-				case Keys.D9:
-					Button9_Click(this, new EventArgs());
-					break;
-				case Keys.Enter:
-					if (resultButton.Enabled)
-					{
-						ResultButton_Click(this, new EventArgs());
-					}
-					break;
-				case Keys.Oemplus:
-				case Keys.Add:
-					if (plusButton.Enabled)
-					{
-						PlusButton_Click(this, new EventArgs());
-					}
-					break;
-				case Keys.OemMinus:
-				case Keys.Subtract:
-					if (minusButton.Enabled)
-					{
-						MinusButton_Click(this, new EventArgs());
-					}
-					break;
-				case Keys.Divide:
-					if (divideButton.Enabled)
-					{
-						DivideButton_Click(this, new EventArgs());
-					}
-					break;
-				case Keys.Multiply:
-					if (multiplyButton.Enabled)
-					{
-						MultiplyButton_Click(this, new EventArgs());
-					}
-					break;
-				case Keys.Delete:
-				case Keys.Back:
-					if (ceButton.Enabled)
-					{
-						CEButton_Click(this, new EventArgs());
-					}
-					break;
-			}
-		}
-
 		private void MinusButton_Click(object sender, EventArgs e)
 		{
 			SetOperation(minusButton.Text);
@@ -307,6 +218,30 @@ namespace Calculator
 		private void TextBox_TextChanged(object sender, EventArgs e)
 		{
 			CheckCEButtonEnable();
+		}
+
+		private void MainWindow_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (e.KeyChar >= '0' && e.KeyChar <= '9')
+			{
+				SetTextToTextBox(e.KeyChar.ToString());
+			}
+			else if (e.KeyChar == '/' || e.KeyChar == '*' || e.KeyChar == '-' || e.KeyChar == '+')
+			{
+				SetOperation(e.KeyChar.ToString());
+			}
+			else if (e.KeyChar =='\r')
+			{
+				ResultButton_Click(this, new EventArgs());
+			}
+			else if (e.KeyChar == '\b')
+			{
+				CEButton_Click(this, new EventArgs());
+			}
+			else
+			{
+				e.Handled = false;
+			}
 		}
 	}
 }
