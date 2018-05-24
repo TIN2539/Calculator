@@ -165,7 +165,7 @@ namespace Calculator
 			SetOperation(divideButton.Text);
 		}
 
-		private void Form1_KeyDown(object sender, KeyEventArgs e)
+		private void MainWindow_KeyDown(object sender, KeyEventArgs e)
 		{
 			switch (e.KeyCode)
 			{

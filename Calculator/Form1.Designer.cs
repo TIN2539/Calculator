@@ -281,7 +281,7 @@
 			this.Name = "MainWindow";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Calculator";
-			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
