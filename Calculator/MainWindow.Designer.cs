@@ -227,7 +227,6 @@
 			this.textBox.TabIndex = 16;
 			this.textBox.TabStop = false;
 			this.textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.textBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
 			// 
 			// resultBox
 			// 
@@ -239,11 +238,9 @@
 			this.resultBox.TabIndex = 17;
 			this.resultBox.TabStop = false;
 			this.resultBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.resultBox.ReadOnlyChanged += new System.EventHandler(this.ResultBox_ReadOnlyChanged);
 			// 
 			// ceButton
 			// 
-			this.ceButton.Enabled = false;
 			this.ceButton.Location = new System.Drawing.Point(12, 147);
 			this.ceButton.Name = "ceButton";
 			this.ceButton.Size = new System.Drawing.Size(75, 23);

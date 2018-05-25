@@ -132,11 +132,6 @@ namespace Calculator
 			ClearText();
 		}
 
-		private void CheckCEButtonEnable()
-		{
-			ceButton.Enabled = resultBox.TextLength > 0 || textBox.TextLength > 0;
-		}
-
 		private void ClearText()
 		{
 			if (resultBox.TextLength >= 0 && textBox.TextLength > 0)
@@ -149,6 +144,14 @@ namespace Calculator
 				resultBox.Clear();
 				button0.Enabled = true;
 			}
+			ActivateOperationButton();
+		}
+
+		private void CreateResult()
+		{
+			CalculatingTwoOperands();
+			textBox.AppendText(result.ToString());
+			button0.Enabled = true;
 			ActivateOperationButton();
 		}
 
@@ -196,23 +199,9 @@ namespace Calculator
 			SetOperation(plusButton.Text);
 		}
 
-		private void ResultBox_ReadOnlyChanged(object sender, EventArgs e)
-		{
-			CheckCEButtonEnable();
-		}
-
 		private void ResultButton_Click(object sender, EventArgs e)
 		{
 			CreateResult();
-		}
-
-		private void CreateResult()
-		{
-			CalculatingTwoOperands();
-			textBox.AppendText(result.ToString());
-			button0.Enabled = true;
-			ceButton.Enabled = false;
-			ActivateOperationButton();
 		}
 
 		private void SetOperation(string text)
@@ -234,11 +223,6 @@ namespace Calculator
 			textBox.AppendText(text);
 			button0.Enabled = true;
 			ActivateOperationButton();
-		}
-
-		private void TextBox_TextChanged(object sender, EventArgs e)
-		{
-			CheckCEButtonEnable();
 		}
 	}
 }
