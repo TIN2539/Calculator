@@ -130,7 +130,6 @@ namespace Calculator
 		private void CEButton_Click(object sender, EventArgs e)
 		{
 			ClearText();
-			CheckCEButtonEnable();
 		}
 
 		private void CheckCEButtonEnable()
@@ -170,11 +169,11 @@ namespace Calculator
 			}
 			else if (e.KeyChar =='\r')
 			{
-				ResultButton_Click(this, new EventArgs());
+				CreateResult();
 			}
 			else if (e.KeyChar == '\b')
 			{
-				CEButton_Click(this, new EventArgs());
+				ClearText();
 			}
 			else
 			{
@@ -203,6 +202,11 @@ namespace Calculator
 		}
 
 		private void ResultButton_Click(object sender, EventArgs e)
+		{
+			CreateResult();
+		}
+
+		private void CreateResult()
 		{
 			CalculatingTwoOperands();
 			textBox.AppendText(result.ToString());
