@@ -221,8 +221,10 @@
 			// 
 			// textBox
 			// 
+			this.textBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.textBox.Location = new System.Drawing.Point(12, 29);
 			this.textBox.Name = "textBox";
+			this.textBox.ReadOnly = true;
 			this.textBox.Size = new System.Drawing.Size(329, 20);
 			this.textBox.TabIndex = 16;
 			this.textBox.TabStop = false;
